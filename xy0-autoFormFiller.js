@@ -1,8 +1,8 @@
        // ==UserScript==
       // @name        XY0-autoFormFiller
-     // @namespace   http://vet-dc.com/category/news/
+     // @namespace   http://www.link.to/form
     // @description Auto-fill a form, then submit it. Auto-refresh if brought to a confirmation page
-   // @include     http://vet-dc.com/category/news/
+   // @include     http://www.link.to/form/
   // @version     1
  // @grant       none
 // ==/UserScript==
