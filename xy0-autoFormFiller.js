@@ -144,4 +144,3 @@ if (localStorage.getItem("email_data_num") === null) {
 }
 
 console.log('         --/script---         ');
-
