@@ -1,8 +1,8 @@
        // ==UserScript==
       // @name        XY0-autoFormFiller
-     // @namespace   http://vet-dc.com/category/news/
+     // @namespace   http://www.link.to/form/
     // @description Auto-fill a form, then submit it. Auto-refresh if brought to a confirmation page
-   // @include     http://vet-dc.com/category/news/
+   // @include     http://www.link.to/form/
   // @version     1
  // @grant       none
 // ==/UserScript==
@@ -70,9 +70,10 @@ function addCSSRule(sheet, selector, rules, index) {
  }
 }
 
-// define the style change
+// define the style change and element
 //addCSSRule(sheet, "gform_fields_5", "background: yellow");
-$("#gform_fields_5").css("background", "yellow");
+var changeElementBgColor = '#gform_widget-4';
+$(changeElementBgColor).css("background", "yellow");
 
 // try to get the persistant indexing variable, if it dosn't exist, create it
 if (localStorage.getItem("email_data_num") === null) {
@@ -82,6 +83,7 @@ if (localStorage.getItem("email_data_num") === null) {
 
     alert("Click OK to start the Auto Form Filler");
 
+    // navigate back to the form
     window.location.href = formURL;
 
 } else {
@@ -101,6 +103,7 @@ if (localStorage.getItem("email_data_num") === null) {
 
         // if we are finished with the entire set of data, otherise, keep going
         if (email_data.length <= email_data_num) {
+            $(changeElementBgColor).css("background", "lightgreen");
             alert("All Done!");
         } else {
 
@@ -122,7 +125,8 @@ if (localStorage.getItem("email_data_num") === null) {
             // wait a second, then click submit
             setTimeout(function(){
                 console.log("~ clicking submit");
-
+                $(changeElementBgColor).css("background", "#f90c");
+                
                 // $("#gform_submit_button_5").click(function(){
                 //  console.log("button clicked");
                 // });
@@ -132,14 +136,12 @@ if (localStorage.getItem("email_data_num") === null) {
                 // });
                 // $('#gform_submit_button_5').trigger('click');
 
+                // navigate back to the form
+                window.location.href = formURL;
             },1000);
         }
     }
 }
-
-
-
-
 
 console.log('         --/script---         ');
 
